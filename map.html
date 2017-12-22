@@ -1,0 +1,75 @@
+<script src = "jquery-3.2.1.min.js"></script>
+<h3>My Google Maps Demo</h3>
+<div id="map" style = "height:500px"></div>
+<!-- Replace the value of the key parameter with your own API key. -->
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAPmFB_OWQ6OcNvGeYhD3yF9TdrniggrQ&callback=initMap">
+</script>
+<br>
+<br>
+<br>
+LAT  <input id = "lat"  type ="text" />
+Long <input id = "long" type ="text" />
+
+
+
+<button id = "sub_long_lat">SHOW ON MAP</button><br>
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<div style = "float:left" class = "go" id = "INDIA"><img class = "images" src = "taj.jpg"/></div>
+<div style = "float:right" class = "go" id = "CANADA"><img class = "images"src = "canada.jpg"/></div>	
+
+
+<script>
+
+var width = $(window).width();
+var height = $(window).height();
+
+$(".images").width(width*40/100);
+$(".go").width(width*40/100);
+
+$(".images").width(height*20/100);
+$(".go").width(height*20/100);
+
+
+$(".go").hover(function(){
+		if($(this).attr('id')=="INDIA"){
+			initMap(28.6139,77.2090,"india.png");
+		}else{
+			initMap(45.4215,-75.6972,"canada_flag.png");
+		}
+		
+    }, function(){
+    $(this).css("background-color", "pink");
+});
+
+$( "#sub_long_lat" ).click(function() {
+	var latitude = $("#lat").val(); 
+	var longitude= $("#long").val(); 
+	initMap(latitude,longitude);	
+});
+
+function initMap(latitude,longitude,iconpath) {
+  var uluru = {lat: parseInt(latitude), lng: parseInt(longitude)};
+  console.log(uluru);
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 4,
+    center: uluru
+  });
+  var marker = new google.maps.Marker({
+    position: uluru,
+    map		: map,
+	icon	: iconpath
+  });
+}
+
+</script>
