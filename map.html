@@ -25,8 +25,8 @@ Long <input id = "long" type ="text" />
 
 
 
-<div style = "float:left" class = "go" id = "INDIA"><img class = "images" src = "taj.jpg"/></div>
-<div style = "float:right" class = "go" id = "CANADA"><img class = "images"src = "canada.jpg"/></div>	
+<div style = "float:left" class = "go" id = "INDIA"><img class = "images" src = "images/taj.jpg"/></div>
+<div style = "float:right" class = "go" id = "CANADA"><img class = "images"src = "images/canada.jpg"/></div>	
 
 
 <script>
@@ -43,9 +43,9 @@ $(".go").width(height*20/100);
 
 $(".go").hover(function(){
 		if($(this).attr('id')=="INDIA"){
-			initMap(28.6139,77.2090,"india.png");
+			initMap(28.6139,77.2090,"images/india.png");
 		}else{
-			initMap(45.4215,-75.6972,"canada_flag.png");
+			initMap(45.4215,-75.6972,"images/canada_flag.png");
 		}
 		
     }, function(){
